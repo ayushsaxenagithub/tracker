@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Notifications</h2>
+  <ul>
+    {% for notification in notifications %}
+      <li>{{ notification.message }} - <button data-id="{{ notification.id }}" class="mark-read">Mark as read</button></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

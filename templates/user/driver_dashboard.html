@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Driver Dashboard</h2>
+  <p>Welcome, {{ profile.user.username }}!</p>
+  <p>License Number: {{ profile.license_number }}</p>
+  <p>License Expiry Date: {{ profile.license_expiry_date }}</p>
+  <p>Emergency Contact: {{ profile.emergency_contact_name }} - {{ profile.emergency_contact_number }}</p>
+{% endblock %}

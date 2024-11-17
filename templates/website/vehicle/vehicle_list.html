@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Vehicle List</h2>
+<ul>
+  {% for vehicle in vehicles %}
+    <li>{{ vehicle.registration_no }} - <a href="{% url 'vehicle_detail' vehicle.id %}">View Details</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

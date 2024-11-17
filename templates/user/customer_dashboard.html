@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Customer Dashboard</h2>
+  <p>Welcome, {{ profile.user.username }}!</p>
+  <p>Company Name: {{ profile.company_name }}</p>
+  <p>GST Number: {{ profile.gst_number }}</p>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add New Document</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="document_type">Document Type:</label>
+  <input type="text" name="document_type" id="document_type"><br>
+  <label for="document_file">Document File:</label>
+  <input type="file" name="document_file" id="document_file"><br>
+  <label for="expiry_date">Expiry Date:</label>
+  <input type="date" name="expiry_date" id="expiry_date"><br>
+  <button type="submit">Save Document</button>
+</form>
+{% endblock %}

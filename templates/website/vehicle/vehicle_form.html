@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add New Vehicle</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label for="chassiss_no">Chassis Number:</label>
+  <input type="text" name="chassiss_no" id="chassiss_no"><br>
+  <label for="engine_no">Engine Number:</label>
+  <input type="text" name="engine_no" id="engine_no"><br>
+  <!-- Add all other vehicle fields here -->
+  <button type="submit">Save Vehicle</button>
+</form>
+{% endblock %}

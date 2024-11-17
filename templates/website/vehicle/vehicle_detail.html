@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Vehicle Details</h2>
+<p>Registration Number: {{ vehicle.registration_no }}</p>
+<p>Make: {{ vehicle.make }}</p>
+<p>Model: {{ vehicle.model }}</p>
+<h3>Documents</h3>
+<ul>
+  {% for document in documents %}
+    <li>{{ document.document_type }} - Expiry: {{ document.expiry_date }}</li>
+  {% endfor %}
+</ul>
+<h3>Expenses</h3>
+<ul>
+  {% for expense in expenses %}
+    <li>{{ expense.expense_type }} - Amount: {{ expense.amount }}</li>
+  {% endfor %}
+</ul>
+<h3>Trips</h3>
+<ul>
+  {% for trip in trips %}
+    <li>Trip to {{ trip.end_location }} - Status: {{ trip.trip_status }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

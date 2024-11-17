@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add New Expense</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="expense_type">Expense Type:</label>
+  <input type="text" name="expense_type" id="expense_type"><br>
+  <label for="amount">Amount:</label>
+  <input type="number" name="amount" id="amount"><br>
+  <label for="attachment">Attachment:</label>
+  <input type="file" name="attachment" id="attachment"><br>
+  <button type="submit">Save Expense</button>
+</form>
+{% endblock %}
