@@ -4,30 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker Application</title>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Load Bootstrap CSS from CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Load custom static styles -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <!-- Navigation Bar -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'vehicle_list' %}">Vehicles</a></li>
-                <li><a href="{% url 'customer_list' %}">Customers</a></li>
-                <li><a href="{% url 'trip_create' %}">Add Trip</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'user_dashboard' %}">Tracker Application</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'vehicle_list' %}">Vehicles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'customer_list' %}">Customers</a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'user_activity_log' %}">Activity Log</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'update_profile' %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
     </header>
 
     <!-- Main Content Area -->
-    <main>
+    <main class="container mt-4">
         {% block content %}
         <!-- Page-specific content will go here -->
         {% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer bg-light text-center py-3 mt-4">
         <p>&copy; 2024 Tracker Application. All Rights Reserved.</p>
     </footer>
+
+    <!-- Load Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
